@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Builder</title>
+    <link rel="stylesheet" href="../static/styles.css" th:href="@{/styles.css}">
+
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Resume Builder</h1>
+        </header>
+        <section id="personal-info">
+            <h2>Personal Information</h2>
+            <form action="register" method="post">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone:</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                <div class="form-group">
+                    <label for="gender">Select Gender:</label>
+                    <select id="gender" name="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address">
+                </div>
+                <div class="form-group">
+                    <label for="date">DOB:<label>
+                            <input type="date" name="date" id="date">
+                </div>
+                <h2>Education</h2>
+                <div class="form-group">
+                    <label for="school">School/Institution:</label>
+                    <input type="text" id="school" name="school">
+                </div>
+                <div class="form-group">
+                    <label for="tenth-grade">Grade in 10th:</label>
+                    <input type="text" id="tenth-grade" name="tenthmark">
+                </div>
+                <div class="form-group">
+                    <label for="year-of-completion">Year of Completion (10th):</label>
+                    <input type="number" id="year-of-completion" name="yoctenth">
+                </div>
+                <div class="form-group">
+                    <label for="twelfth-grade">Grade in 10+2 :</label>
+                    <input type="text" id="twelfth-grade" name="twelthmark">
+                </div>
+                <div class="form-group">
+                    <label for="year-of-completion">Year of Completion (10+2):</label>
+                    <input type="number" id="year-of-completion" name="yocplustwo">
+                </div>
+                <h2>Work Experience</h2>
+                <button type="submit">Add Experience</button>
+            </form>
+           
+           
+        </section>
+        <div id="copyright">
+            &copy; 2023 Copyright Made By Sankha Subhra Ghosh, Nihal Sivapuram, and Nendra Namgyel Wangchuk. All rights
+            reserved.
+        </div>
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Experience Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Work Experience Form</h1>
+        </header>
+
+        <section id="experience-form">
+            
+            <h2>Your User Id is: <span th:text="${ID}">ID</span></h2>
+             <input type="hidden" name="user" th:value="${user}">
+            <form action="exp" method="post">
+				<div class="form-group">
+                    <label for="RefID">Enter User ID:</label>
+                    <input type="number" name="RefID" th:value="${ID}">
+                   
+                </div>
+                <div class="form-group">
+                    <label for="company-name">Name of Company:</label>
+                    <input type="text" id="company-name" name="companyname">
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration:</label>
+                    <input type="text" id="duration" name="duration">
+                </div>
+                <div class="form-group">
+                    <label for="job-role">Job Role:</label>
+                    <input type="text" id="job-role" name="jobrole">
+                </div>
+                <div class="form-group">
+                    <label for="skills-gained">Skills Gained:</label>
+                    <input type="text" id="skills-gained" name="skillsgained">
+                </div>
+                <div class="form-group">
+					<button type="submit">Add Experience</button>
+				</div>
+                
+            </form>
+            <form action="download" method="post">
+				 <input hidden type="number" name="RefID" th:value="${ID}" >
+				 <div class="form-group">
+					 <button type="submit">Generate PDF</button>
+				 </div>
+    
+			</form>
+        </section>
+    </div>
+</body>
+
+</html>
