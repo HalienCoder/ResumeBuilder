@@ -1,20 +1,13 @@
-# Use official OpenJDK 21 image
-FROM eclipse-temurin:21-jdk
-
-# Set working directory
+# ----------- Build Stage -----------
+FROM eclipse-temurin:21-jdk AS build
 WORKDIR /app
-
-# Copy Maven wrapper and project files
 COPY . .
+RUN ./mvnw clean package -DskipTests
 
-# Build the application (if target JAR not present)
-RUN ./mvnw clean package || true
-
-# Use environment variable PORT from Render
+# ----------- Run Stage -----------
+FROM eclipse-temurin:21-jdk
+WORKDIR /app
+COPY --from=build /app/target/app.jar ./app.jar
 ENV PORT=$PORT
-
-# Expose the port
 EXPOSE $PORT
-
-# Run the application
-CMD ["java", "-jar", "target/Resume-Maker-HTML-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "app.jar"]
